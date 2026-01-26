@@ -1,0 +1,18 @@
+load_balancer:
+  strategy: least_requests
+  circuit_breaker_threshold: 5
+  circuit_breaker_timeout: 60
+
+auth:
+  api_key: sk_xxxxxxxxxxxxxxx //可以自己定义
+
+endpoints:
+  - name: workspace-eastus2
+    api_base: https://adb-xxxx.azuredatabricks.net/serving-endpoints
+    token: xxxx
+    weight: 1
+
+  - name: workspace-westus2
+    api_base: https://adb-xxxx.azuredatabricks.net/serving-endpoints
+    token: xxxx
+    weight: 1
