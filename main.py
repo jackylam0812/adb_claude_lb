@@ -27,6 +27,7 @@ logger = logging.getLogger(__name__)
 DATABRICKS_MODELS = {
     "sonnet": "databricks-claude-sonnet-4-5",
     "opus": "databricks-claude-opus-4-5",
+    "haiku": "databricks-claude-haiku-4-5",
 }
 
 DEFAULT_MODEL = "databricks-claude-sonnet-4-5"
@@ -44,7 +45,7 @@ def get_databricks_model(model: str) -> str:
     elif "sonnet" in model_lower:
         mapped = DATABRICKS_MODELS["sonnet"]
     elif "haiku" in model_lower:
-        mapped = DATABRICKS_MODELS["sonnet"]  # Databricks 没有 haiku，用 sonnet 代替
+        mapped = DATABRICKS_MODELS["haiku"]
     else:
         logger.warning(f"Unknown model '{model}', using default: {DEFAULT_MODEL}")
         mapped = DEFAULT_MODEL
